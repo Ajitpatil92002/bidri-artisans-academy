@@ -138,9 +138,9 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onSelectLesson }) => {
                         <div
                           key={lesson.id}
                           onClick={() => handleLessonClick(lesson, module.id, module.title)}
-                          className="group flex items-center gap-3 md:gap-4 p-3 md:p-4 bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 hover:border-bidri-gold/30 rounded-lg md:rounded-xl cursor-pointer transition-all"
+                          className="group flex items-center gap-2 sm:gap-3 md:gap-4 p-3 md:p-4 bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 hover:border-bidri-gold/30 rounded-lg md:rounded-xl cursor-pointer transition-all"
                         >
-                          <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-lg bg-white/5 flex items-center justify-center text-[10px] md:text-xs font-bold text-gray-500 group-hover:text-bidri-gold group-hover:bg-bidri-gold/10 transition-colors">
+                          <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-lg bg-white/5 flex items-center justify-center text-[9px] sm:text-[10px] md:text-xs font-bold text-gray-500 group-hover:text-bidri-gold group-hover:bg-bidri-gold/10 transition-colors">
                             {moduleIdx + 1}.{lessonIdx + 1}
                           </div>
                           
@@ -152,8 +152,8 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onSelectLesson }) => {
                             />
                           </div>
 
-                          <div className="flex-1 min-w-0">
-                            <h4 className="font-semibold text-white group-hover:text-bidri-gold transition-colors text-sm md:text-base truncate">
+                          <div className="flex-1 min-w-0 overflow-hidden">
+                            <h4 className="font-semibold text-white group-hover:text-bidri-gold transition-colors text-xs sm:text-sm md:text-base truncate">
                               {lesson.title}
                             </h4>
                             <p className="text-[10px] md:text-xs text-gray-500 truncate hidden sm:block">{lesson.description}</p>
@@ -174,8 +174,8 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onSelectLesson }) => {
                               </div>
                             </div>
                             
-                            <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-bidri-gold group-hover:border-bidri-gold group-hover:text-black transition-all">
-                              <span className="text-sm">→</span>
+                            <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-bidri-gold group-hover:border-bidri-gold group-hover:text-black transition-all text-xs sm:text-sm">
+                              →
                             </div>
                           </div>
                         </div>
