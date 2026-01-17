@@ -1,0 +1,8 @@
+{
+  "name": "Bidri Artisans Academy",
+  "description": "An interactive educational platform dedicated to the 14th-century metal handicraft of Bidar. Learn the intricate steps of casting, engraving, and the magical soil-blackening process.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
