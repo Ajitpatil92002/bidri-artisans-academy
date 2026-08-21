@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { BIDRI_COURSE } from '../constants';
 import { Lesson } from '../types';
@@ -10,9 +9,10 @@ interface LessonWithModule extends Lesson {
 
 interface CourseOverviewProps {
   onSelectLesson: (lesson: LessonWithModule) => void;
+  onApply?: () => void;
 }
 
-const CourseOverview: React.FC<CourseOverviewProps> = ({ onSelectLesson }) => {
+const CourseOverview: React.FC<CourseOverviewProps> = ({ onSelectLesson, onApply }) => {
   const [expandedModule, setExpandedModule] = useState<string | null>(BIDRI_COURSE.modules[0]?.id || null);
 
   const totalLessons = BIDRI_COURSE.modules.reduce((acc, m) => acc + m.lessons.length, 0);
@@ -58,6 +58,23 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onSelectLesson }) => {
             <div className="text-xl md:text-3xl font-bold text-white">8+</div>
             <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">Hours</div>
           </div>
+        </div>
+
+        {/* Apply CTA Header Bar */}
+        <div className="mt-8 flex justify-center gap-3">
+          <button
+            onClick={onApply}
+            className="px-6 py-2.5 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black font-bold text-xs uppercase tracking-wider rounded-lg shadow-lg flex items-center gap-2"
+          >
+            <span>📝</span> Apply for Skill Certification
+          </button>
+          <a
+            href="/Guru_Nanak_Bidri_Art_Enrollment_Form.docx"
+            download
+            className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-medium text-xs rounded-lg border border-white/20 flex items-center gap-1.5"
+          >
+            <span>📥</span> Download Form (.docx)
+          </a>
         </div>
       </div>
 
@@ -189,21 +206,32 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onSelectLesson }) => {
         })}
       </div>
 
-      {/* Completion Stats */}
-      <div className="mt-10 md:mt-16 p-5 md:p-8 bg-gradient-to-r from-bidri-gold/10 to-transparent border border-bidri-gold/20 rounded-xl md:rounded-2xl">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6">
+      {/* Enrollment Card */}
+      <div className="mt-10 md:mt-16 p-6 md:p-8 bg-gradient-to-r from-amber-900/20 via-black to-amber-950/20 border border-bidri-gold/40 rounded-xl md:rounded-2xl">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="text-center sm:text-left">
-            <h4 className="cinzel text-base md:text-xl font-bold text-white mb-1 md:mb-2">Complete the Full Course</h4>
-            <p className="text-xs md:text-sm text-gray-400">Master all {totalLessons} lessons across {BIDRI_COURSE.modules.length} modules to earn your certification</p>
+            <span className="text-amber-400 font-bold text-[10px] uppercase tracking-widest block mb-1">
+              Affiliated with GN JERBI Foundation
+            </span>
+            <h4 className="cinzel text-lg md:text-2xl font-bold text-white mb-2">Ready to Become a Certified Bidri Artisan?</h4>
+            <p className="text-xs md:text-sm text-gray-300 max-w-xl">
+              Register online or download our offline registration application form for regular batches in Bidar.
+            </p>
           </div>
-          <div className="flex items-center gap-3 md:gap-4">
-            <div className="text-right">
-              <div className="text-xl md:text-2xl font-bold text-bidri-gold">0%</div>
-              <div className="text-[9px] md:text-[10px] text-gray-500 uppercase tracking-wider">Progress</div>
-            </div>
-            <div className="w-24 md:w-32 h-1.5 md:h-2 bg-white/10 rounded-full overflow-hidden">
-              <div className="w-0 h-full bg-bidri-gold"></div>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            <button
+              onClick={onApply}
+              className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg"
+            >
+              Fill Online Form (/apply)
+            </button>
+            <a
+              href="/Guru_Nanak_Bidri_Art_Enrollment_Form.docx"
+              download
+              className="px-5 py-3 bg-blue-600/30 hover:bg-blue-600/50 text-blue-300 border border-blue-500/40 text-center font-bold text-xs uppercase tracking-wider rounded-xl"
+            >
+              Offline Form (.docx)
+            </a>
           </div>
         </div>
       </div>

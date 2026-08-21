@@ -1,46 +1,183 @@
-
 import React from 'react';
 import { BIDRI_COURSE } from '../constants';
 
 interface LandingPageProps {
   onStart: () => void;
+  onOpenApply?: () => void;
 }
 
-const LandingPage: React.FC<LandingPageProps> = ({ onStart }) => {
+const LandingPage: React.FC<LandingPageProps> = ({ onStart, onOpenApply }) => {
   const totalLessons = BIDRI_COURSE.modules.reduce((acc, m) => acc + m.lessons.length, 0);
 
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/bidri_hero.png" 
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover opacity-35 filter brightness-90"
             alt="Bidriware background"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-bidri-black via-transparent to-bidri-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-bidri-black via-bidri-black/60 to-bidri-black/90"></div>
         </div>
         
         <div className="relative z-10 text-center px-4 md:px-6 max-w-4xl py-12">
-          <h2 className="cinzel text-gray-500 text-sm md:text-xl tracking-[0.3em] md:tracking-[0.5em] mb-3 md:mb-4">ESTABLISHED 1422 AD</h2>
-          <h1 className="cinzel text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-6 text-white leading-tight">
+          {/* Institutional Badges Top */}
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6 mb-6">
+            <span className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-300 text-[11px] font-semibold tracking-wider uppercase">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              Admissions Open 2026–2027
+            </span>
+            <span className="cinzel text-gray-400 text-xs md:text-sm tracking-[0.3em] uppercase">
+              NIDHI DST iTBI Supported
+            </span>
+          </div>
+
+          <h1 className="cinzel text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-4 md:mb-6 text-white leading-tight">
             The Alchemy of <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-white to-gray-400">Silver & Soil</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-300 to-amber-500">
+              Silver & Soil
+            </span>
           </h1>
           <p className="text-sm md:text-lg lg:text-xl text-gray-300 mb-8 md:mb-10 max-w-2xl mx-auto font-light leading-relaxed px-2">
-            {BIDRI_COURSE.description}
+            Guru Nanak Bidri Art Skill Development Center • GN JERBI Foundation. Learn the 600-year-old metallic heritage craft of Bidar with master artisans and modern technology.
           </p>
+
+          {/* Action CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
             <button 
-              onClick={onStart}
-              className="w-full sm:w-auto px-8 md:px-10 py-3 md:py-4 bg-white text-black font-bold text-base md:text-lg hover:bg-gray-200 transition-all rounded-sm"
+              onClick={onOpenApply || onStart}
+              className="w-full sm:w-auto px-8 md:px-10 py-3.5 md:py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold text-sm md:text-base uppercase tracking-wider transition-all rounded-xl shadow-[0_0_25px_rgba(197,160,89,0.4)] transform hover:scale-105"
             >
-              Begin Apprenticeship
+              Apply for Enrollment →
             </button>
-            <button className="w-full sm:w-auto px-8 md:px-10 py-3 md:py-4 border border-white text-white font-bold text-base md:text-lg hover:bg-white/10 transition-all rounded-sm">
-              View History
+            <button 
+              onClick={onStart}
+              className="w-full sm:w-auto px-8 md:px-10 py-3.5 md:py-4 bg-white/10 hover:bg-white/20 text-white font-bold text-sm md:text-base border border-white/20 transition-all rounded-xl backdrop-blur-sm"
+            >
+              Explore Curriculum
             </button>
+            <a 
+              href="/Guru_Nanak_Bidri_Art_Enrollment_Form.docx"
+              download
+              className="w-full sm:w-auto px-6 py-3.5 md:py-4 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 font-semibold text-xs md:text-sm rounded-xl flex items-center justify-center gap-2 transition-all"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Offline Form
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ADMISSION & ENROLLMENT SHOWCASE SECTION */}
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-b from-black via-[#0d0d0d] to-black border-y border-amber-500/20">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left Column: Info & Buttons */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-md text-amber-400 text-xs font-semibold uppercase tracking-widest">
+                Official Registration
+              </div>
+              <h2 className="cinzel text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                Enrollment Application <br />
+                <span className="text-amber-400">Guru Nanak Bidri Art Center</span>
+              </h2>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Admissions are now open for the certified Bidri Art Skill Development Program at Guru Nanak Dev Engineering College Campus, Mailoor Road, Bidar. Supported by NIDHI DST iTBI.
+              </p>
+
+              <div className="grid grid-cols-2 gap-4 py-2">
+                <div className="bg-white/5 border border-white/10 p-3 rounded-lg">
+                  <div className="text-amber-400 font-bold text-base">Basic & Advanced</div>
+                  <div className="text-[11px] text-gray-400">Skill Levels Available</div>
+                </div>
+                <div className="bg-white/5 border border-white/10 p-3 rounded-lg">
+                  <div className="text-amber-400 font-bold text-base">Digital + Handcraft</div>
+                  <div className="text-[11px] text-gray-400">CAD, 3D Print & Inlay</div>
+                </div>
+              </div>
+
+              {/* Two Options Highlight Card */}
+              <div className="bg-gradient-to-r from-[#181818] to-[#121212] border border-amber-500/30 p-5 rounded-xl space-y-4">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-amber-300">
+                  Two Convenient Ways to Apply:
+                </h3>
+                
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={onOpenApply || onStart}
+                    className="flex-1 py-3 px-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-xs uppercase tracking-wider rounded-lg shadow-md flex items-center justify-center gap-2 transition-all"
+                  >
+                    <span>📝</span> Fill Online Form (/apply)
+                  </button>
+                  <a
+                    href="/Guru_Nanak_Bidri_Art_Enrollment_Form.docx"
+                    download
+                    className="flex-1 py-3 px-4 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider rounded-lg shadow-md flex items-center justify-center gap-2 transition-all"
+                  >
+                    <span>📥</span> Download Word (.docx)
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Visual Form Preview Snapshot */}
+            <div className="lg:col-span-5">
+              <div 
+                onClick={onOpenApply || onStart}
+                className="group relative cursor-pointer bg-white text-black p-4 rounded-xl shadow-2xl border-4 border-amber-500/40 hover:border-amber-400 transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div className="absolute top-3 right-3 bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow z-10">
+                  Click to Open Form
+                </div>
+                
+                {/* Micro Header Preview */}
+                <div className="flex items-center justify-between border-b pb-2 mb-2">
+                  <div className="w-8 h-8 rounded-full border border-black flex items-center justify-center text-[7px] font-bold">
+                    GNJ
+                  </div>
+                  <div className="text-center flex-1 px-1">
+                    <div className="text-[9px] font-black text-blue-900 leading-tight">GURU NANAK BIDRI ART</div>
+                    <div className="text-[7px] font-bold text-amber-800">ENROLLMENT FORM</div>
+                  </div>
+                  <div className="w-7 h-9 border border-gray-400 bg-gray-100 flex items-center justify-center text-[6px] text-gray-500">
+                    Photo
+                  </div>
+                </div>
+
+                {/* Form fields skeleton visual */}
+                <div className="space-y-1.5 text-[8px]">
+                  <div className="bg-amber-800 text-white font-bold px-1.5 py-0.5 uppercase">1. Personal Information</div>
+                  <div className="grid grid-cols-2 gap-1 bg-gray-50 p-1 border">
+                    <div>Full Name: _________________</div>
+                    <div>DOB: ______________</div>
+                    <div>Aadhaar: _________________</div>
+                    <div>Mobile: ______________</div>
+                  </div>
+
+                  <div className="bg-amber-800 text-white font-bold px-1.5 py-0.5 uppercase">2. Address & KYC Details</div>
+                  <div className="bg-gray-50 p-1 border">
+                    Permanent Address: Bidar, Karnataka - 585403
+                  </div>
+
+                  <div className="bg-amber-800 text-white font-bold px-1.5 py-0.5 uppercase">3. Educational & Training Interest</div>
+                  <div className="grid grid-cols-3 gap-1 text-[7px] bg-gray-50 p-1 border">
+                    <div>☐ Basic Level</div>
+                    <div>☐ Intermediate</div>
+                    <div>☐ Advanced</div>
+                  </div>
+
+                  <div className="bg-blue-950 text-white text-center font-bold py-0.5 text-[7px]">FOR OFFICE USE ONLY</div>
+                </div>
+
+                <div className="mt-3 pt-2 border-t text-center text-[9px] font-bold text-amber-800 group-hover:text-blue-700 transition-colors">
+                  Open Interactive Online Form / Download Printable PDF →
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -94,9 +231,20 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart }) => {
                   </div>
                 </div>
 
-                <button className="w-full py-3 md:py-4 bg-bidri-gold text-black font-bold uppercase tracking-widest rounded-lg md:rounded-xl hover:bg-white transition-all group-hover:shadow-[0_10px_30px_rgba(197,160,89,0.3)] text-sm md:text-base">
-                  Start Learning →
-                </button>
+                <div className="flex gap-3">
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); onStart(); }}
+                    className="flex-1 py-3 md:py-4 bg-bidri-gold text-black font-bold uppercase tracking-widest rounded-lg md:rounded-xl hover:bg-white transition-all text-xs md:text-sm"
+                  >
+                    View Curriculum →
+                  </button>
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); if (onOpenApply) onOpenApply(); }}
+                    className="flex-1 py-3 md:py-4 bg-white/10 hover:bg-white/20 text-white font-bold uppercase tracking-widest rounded-lg md:rounded-xl border border-white/20 transition-all text-xs md:text-sm"
+                  >
+                    Apply Now
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -108,18 +256,18 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart }) => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
           <div className="p-6 md:p-8 border border-white/5 bg-white/5 rounded-xl">
             <div className="text-bidri-gold text-2xl md:text-4xl mb-3 md:mb-4 italic cinzel">01.</div>
-            <h3 className="text-lg md:text-2xl font-bold mb-3 md:mb-4 cinzel">Interactive Modules</h3>
-            <p className="text-gray-400 text-sm md:text-base">High-definition content across {BIDRI_COURSE.modules.length} comprehensive modules covering everything from history to advanced techniques.</p>
+            <h3 className="text-lg md:text-2xl font-bold mb-3 md:mb-4 cinzel">Official Certification</h3>
+            <p className="text-gray-400 text-sm md:text-base">Guru Nanak Bidri Art Skill Center certification supported by NIDHI DST iTBI for master craftsmanship.</p>
           </div>
           <div className="p-6 md:p-8 border border-white/5 bg-white/5 rounded-xl">
             <div className="text-bidri-gold text-2xl md:text-4xl mb-3 md:mb-4 italic cinzel">02.</div>
-            <h3 className="text-lg md:text-2xl font-bold mb-3 md:mb-4 cinzel">AI Mentorship</h3>
-            <p className="text-gray-400 text-sm md:text-base">Ask our Gemini-powered Master Artisan any technical question about alloy composition or design.</p>
+            <h3 className="text-lg md:text-2xl font-bold mb-3 md:mb-4 cinzel">Hands-on Workshops</h3>
+            <p className="text-gray-400 text-sm md:text-base">Molding with Bidar soil, pure silver inlaying, chemical oxidation bath, and precision polishing under expert guidance.</p>
           </div>
           <div className="p-6 md:p-8 border border-white/5 bg-white/5 rounded-xl">
             <div className="text-bidri-gold text-2xl md:text-4xl mb-3 md:mb-4 italic cinzel">03.</div>
-            <h3 className="text-lg md:text-2xl font-bold mb-3 md:mb-4 cinzel">Rich Visual Content</h3>
-            <p className="text-gray-400 text-sm md:text-base">Each lesson features detailed images, step-by-step techniques, and historical context for complete understanding.</p>
+            <h3 className="text-lg md:text-2xl font-bold mb-3 md:mb-4 cinzel">Digital & Modern Tools</h3>
+            <p className="text-gray-400 text-sm md:text-base">Master CAD software, 3D printing prototyping, and digital marketing to take traditional Bidriware to global markets.</p>
           </div>
         </div>
       </section>
