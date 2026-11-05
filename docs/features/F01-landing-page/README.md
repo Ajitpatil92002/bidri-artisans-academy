@@ -1,11 +1,11 @@
 # F01 — Landing page
 
-**Status:** Done (static version)
+**Status:** Done
 **Design:** [docs/design/home-page-v1.webp](../../design/home-page-v1.webp)
 **Route:** `/`
 
 ## Scope
-A **static** landing page. There is no backend yet. Product data is hard-coded in `src/data/products.ts`.
+The home page. Our Collection reads featured products from the database.
 
 ### From the design (pixel-matched at 1536px)
 1. **Header:** logo, nav links, search/account/cart icons with a cart badge (always 0 for now). On mobile, the nav collapses into a menu button.
@@ -17,7 +17,7 @@ A **static** landing page. There is no backend yet. Product data is hard-coded i
 5. **The Art of Bidri:** a craft history story with an image
 6. **How it's made:** four steps (Casting, Engraving, Inlaying, Oxidising)
 7. **Thoughtful Gifting:** a banner with a CTA
-8. **Newsletter:** a signup form (UI only; it isn't connected to anything)
+8. **Newsletter:** a signup form that saves to the database
 9. **Footer:** brand, link columns, copyright
 
 ## Components

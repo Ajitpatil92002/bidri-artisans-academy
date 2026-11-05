@@ -2,6 +2,28 @@
 
 Newest first. One entry per working session: what was done, and what's next.
 
+## 2026-11-05 — Complete app built (M1 to M6)
+- Built everything in docs/features: database, shop, search, product pages, accounts, cart, checkout, emails, admin, artisans, journal, contact, newsletter and policy pages.
+- Owner changes during the build: no email verification (D-023), Mailpit removed (D-027), Cloudflare R2 for images (D-028), show/hide password on every password field.
+- Other decisions: Cache Components off (D-024), local Razorpay stand-in (D-025), uploads to disk locally (D-026).
+- Tests: 31 unit and database tests (Vitest), 7 browser journeys (Playwright). All pass.
+- Bugs found by testing and fixed: a new address wasn't selected at checkout; forms cleared what people typed when validation failed.
+- Not tested yet, because each needs an account: real Razorpay, Resend, Cloudflare R2.
+- Known dev-only issue: the dev server sometimes reloads the first page repeatedly after starting. It settles by itself.
+- Nothing is committed yet.
+
+**Next:** the owner reviews the site, then adds Razorpay test keys and answers the questions in docs/tasks.md.
+
+## 2026-11-05 — Full app plan
+- Planned the complete app. No code changed.
+- Owner decisions: we design the remaining pages (D-014), local Postgres in Docker with Prisma (D-015), account required to buy (D-016), India-only flat-rate shipping (D-017).
+- Proposed, awaiting confirmation: Better Auth, MinIO/S3 images, Mailpit/Resend email, Zod (D-018 to D-021).
+- Added `docs/architecture.md`: services, routes, data model, checkout flow and security.
+- Added features F09 Foundation, F10 Customer accounts, F11 Emails, F12 Search and F13 Contact and policies. Rewrote F02 to F08. Set seven milestones, with 84 planned tasks.
+- Added questions Q-11 to Q-17.
+
+**Next:** the owner confirms the proposals and starts Docker, then we begin M1 (F09 Foundation).
+
 ## 2026-11-03 — Landing page (F01)
 - Received the home page design and the first product photos. Saved them to `docs/design/` and `public/images/`.
 - Moved to per-feature docs: `docs/features/F00…F08`, each with its own README and tasks (D-008).

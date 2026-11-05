@@ -1,12 +1,12 @@
 # F02 — Tasks
 
-Detailed tasks get written when the design arrives. Planned:
-
-- [ ] F02-T01 Database + ORM setup (Q-1)
-- [ ] F02-T02 Product and Category models, seeded with the current products
-- [ ] F02-T03 Shop listing page
-- [ ] F02-T04 Category filter
-- [ ] F02-T05 Point the home page's Our Collection at the database
+- [x] F02-T01 Reusable product card, shared with the home page
+- [x] F02-T02 Shop listing page
+- [x] F02-T03 Category pages
+- [x] F02-T04 Sorting and filters in the URL
+- [x] F02-T05 Pagination
+- [x] F02-T06 Sold-out and empty states
 
 ## Progress log
-- **2026-11-03:** Folder created. Waiting on design.
+- **2026-11-05:** Planned.
+- **2026-11-05:** Built and tested in the browser.

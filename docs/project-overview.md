@@ -8,7 +8,7 @@ Ecommerce is the main part. Stories about the craft and its artisans support it,
 
 ## Who it's for
 
-- **Buyers:** people in India and abroad shopping for authentic handmade Bidri pieces, for themselves or as gifts.
+- **Buyers:** people in India (D-017) shopping for authentic handmade Bidri pieces, for themselves or as gifts.
 - **Artisans / the business:** need a place to show their work and tell their story.
 - **Admin:** manages products, stories and orders without touching code.
 
@@ -36,4 +36,4 @@ Nothing is excluded yet. Record anything we decide to leave out in [decisions.md
 
 ## Status
 
-The project scaffold is set up. **No features are built yet.** We're waiting on the design (see [design/](design/README.md)) before building anything. See [tasks.md](tasks.md).
+The static home page is done. The complete app is planned in seven milestones: see [features/README.md](features/README.md) and [architecture.md](architecture.md).

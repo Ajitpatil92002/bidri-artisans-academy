@@ -1,11 +1,10 @@
 # F06 — Tasks
 
-Detailed tasks get written when the design arrives. Planned:
-
-- [ ] F06-T01 About Bidri page
-- [ ] F06-T02 BlogPost model
-- [ ] F06-T03 Journal list + article pages
-- [ ] F06-T04 First articles (content from the owner)
+- [x] F06-T01 About Bidri page
+- [x] F06-T02 Journal list page
+- [x] F06-T03 Article page
+- [~] F06-T04 First articles, reviewed by the owner
 
 ## Progress log
-- **2026-11-03:** Folder created. Waiting on design.
+- **2026-11-05:** Planned.
+- **2026-11-05:** Pages built. Two articles seeded ("What is Bidri?", "How Bidri is made"), and they need the owner's review.

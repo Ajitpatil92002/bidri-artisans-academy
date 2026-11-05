@@ -82,19 +82,113 @@ Status: **Decided**, **Proposed** (not confirmed yet), or **Superseded by D-xxx*
 - **Decision:** The hero fills the first screen (viewport height minus the header, with a minimum of 560px on desktop and 520px on mobile). The photo covers the area, and the text is centred vertically. Desktop hero text is larger than in the design: heading 72px, subtext 22px, eyebrow 18px, button 54px tall. Everything else stays pixel-matched to the design.
 - **Why:** The owner asked for the hero image to fill the first view and for bigger desktop text.
 
+### D-014 — We design the remaining pages ourselves
+- **Date:** 2026-11-05
+- **Status:** Decided. Supersedes D-007 for pages without a supplied design.
+- **Decision:** Pages other than the home page are designed by us in the landing page's style, then reviewed and corrected by the owner. If the owner supplies a design for a page, that design wins and is matched per D-012.
+- **Why:** The owner chose this so the complete app can be built without waiting for each design.
+
+### D-015 — Local PostgreSQL in Docker, with Prisma
+- **Date:** 2026-11-05
+- **Status:** Decided
+- **Decision:** Development uses PostgreSQL running in Docker, accessed through Prisma.
+- **Why:** The owner's direction. Hosting for launch is still open (Q-11).
+
+### D-016 — Customers must have an account to buy
+- **Date:** 2026-11-05
+- **Status:** Decided
+- **Decision:** No guest checkout. Visitors can browse and fill a cart while logged out, but must log in or register at checkout.
+- **Why:** The owner's direction.
+
+### D-017 — India only, flat-rate shipping
+- **Date:** 2026-11-05
+- **Status:** Decided
+- **Decision:** Ship within India only. One flat fee, with free shipping above a set order value. Both amounts are editable in admin; the values are in Q-12.
+- **Why:** The owner's direction.
+
+### D-018 — Login with Better Auth
+- **Date:** 2026-11-05
+- **Status:** Proposed
+- **Decision:** Use Better Auth with email and password, stored through Prisma, with `customer` and `admin` roles covering both shoppers and the admin panel.
+
+### D-019 — Images use the S3 API, with MinIO locally
+- **Date:** 2026-11-05
+- **Status:** Proposed
+- **Decision:** Uploaded images go to S3-compatible storage: MinIO in Docker locally, and any S3-compatible host in production.
+- **Why:** The same code works in both places.
+
+### D-020 — Email through Mailpit locally and Resend in production
+- **Date:** 2026-11-05
+- **Status:** Proposed
+- **Decision:** Mailpit catches all email in development. Resend sends it in production.
+
+### D-021 — Zod for server-side validation
+- **Date:** 2026-11-05
+- **Status:** Proposed
+- **Decision:** All user input is validated on the server with Zod.
+
+### D-022 — Proposed tools confirmed
+- **Date:** 2026-11-05
+- **Status:** Decided. Confirms D-018 to D-021.
+- **Decision:** Better Auth, S3 API with MinIO locally, Mailpit and Resend, and Zod are all approved.
+- **Why:** The owner said to build everything after seeing the proposals.
+
+### D-023 — No email verification
+- **Date:** 2026-11-05
+- **Status:** Decided
+- **Decision:** Customers can use their account straight after registering, with no email verification step. Password reset and order emails still go out.
+- **Why:** The owner's direction.
+
+### D-024 — Cache Components turned off
+- **Date:** 2026-11-05
+- **Status:** Decided
+- **Decision:** Set `cacheComponents` and `partialPrefetching` to false. Pages that read the database call `connection()` so they render per request, and no page needs the database at build time.
+- **Why:** Stock and prices must always be fresh, and this keeps the many session-based pages simple.
+
+### D-025 — Local stand-in for Razorpay
+- **Date:** 2026-11-05
+- **Status:** Decided
+- **Decision:** With `RAZORPAY_MOCK=true`, checkout uses a local stand-in that runs the same server code, including signature verification. It's refused when `NODE_ENV` is `production`.
+- **Why:** The whole purchase flow can be built and tested before Razorpay test keys are added.
+
+### D-026 — Local uploads go to disk, S3 in production
+- **Date:** 2026-11-05
+- **Status:** Decided. Supersedes the MinIO part of D-019.
+- **Decision:** In development, uploaded images are saved to `public/uploads`. In production they go to any S3-compatible host. Both sit behind one storage module, chosen by whether `S3_BUCKET` is set.
+- **Why:** The MinIO image can no longer be pulled from Docker Hub or Quay without a login.
+
+### D-027 — No local mail service
+- **Date:** 2026-11-05
+- **Status:** Decided. Supersedes the Mailpit part of D-020.
+- **Decision:** Mailpit is removed. In development, emails are saved as HTML files in `.dev-emails/` and noted in the server log. In production, Resend sends them.
+- **Why:** The owner removed Mailpit on purpose. Local work doesn't need a mail service.
+
+### D-028 — Images on Cloudflare R2
+- **Date:** 2026-11-05
+- **Status:** Decided. Fills in the production host left open in D-026.
+- **Decision:** Uploaded images are stored in Cloudflare R2, through its S3-compatible API. Setting the `S3_*` variables turns it on, and the same code works locally if those are set. With no bucket configured, uploads still go to `public/uploads` in development.
+- **Why:** The owner's direction.
+
 ---
 
 ## Open questions (to decide later)
 
 | # | Question | Notes |
 |---|---|---|
-| Q-1 | Database and ORM | Proposed: PostgreSQL (e.g. Neon) with Prisma |
-| Q-2 | Admin login method | Proposed: a simple password-protected admin to start, or Better Auth |
-| Q-3 | Where product images are stored | Proposed: Vercel Blob or Cloudinary |
-| Q-4 | Shipping: rates, zones, international or not | Needed before checkout is built |
-| Q-5 | Taxes / GST on invoices | Needed before checkout is built |
-| Q-6 | Customer accounts, or guest checkout only | |
-| Q-7 | Languages (English only, or Hindi/Kannada too) | |
+| Q-1 | ~~Database and ORM~~ | Answered by D-015 |
+| Q-2 | ~~Admin login method~~ | Proposed in D-018 |
+| Q-3 | ~~Where product images are stored~~ | Proposed in D-019 |
+| Q-4 | ~~Shipping zones~~ | Answered by D-017; amounts are Q-12 |
+| Q-5 | Taxes / GST: are you GST registered? Are prices tax-inclusive? Do you need GST invoices? | Needed before checkout is finished |
+| Q-6 | ~~Customer accounts, or guest checkout only~~ | Answered by D-016 |
+| Q-7 | Languages (English only, or Hindi/Kannada too) | Assumed English only for now |
 | Q-8 | Brand name: the design says "Bidri Craft" but the domain is bidriart.com. Which name is official? | The site uses "Bidri Craft", as in the design |
 | Q-9 | Newsletter email provider | Needed to wire up the signup form |
 | Q-10 | Do gifts really ship gift-ready with a story card? | The gifting section says so; confirm or change the copy |
+| Q-11 | Hosted Postgres for launch | Vercel can't reach a local Docker database. Needed before F08. Image storage is settled (D-028) |
+| Q-12 | Flat shipping fee and free-shipping threshold | Placeholders until confirmed: ₹99 fee, free above ₹1,499 |
+| Q-13 | Returns, refunds and cancellation policy | Razorpay requires these pages before live payments |
+| Q-14 | Business details for legal pages and invoices: legal name, address, phone, support email | Needed for F13 |
+| Q-15 | Is cash on delivery wanted? | Planned as online payment only |
+| Q-16 | Who is the shipping carrier? | Planned as manual tracking entry in admin |
+| Q-17 | Real artisan names, stories and photos, with their permission to publish | Needed for F05; we won't invent people |

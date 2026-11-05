@@ -25,4 +25,4 @@
 - [ ] Owner to confirm the copy we wrote for the added sections, especially the gifting promise ("arrives gift-ready, with a card"), which is a business commitment
 - [ ] Owner to confirm the heading font, or share the font used in the design (see design/README.md)
 - [ ] Design for the added sections and the footer, if the owner wants them changed
-- [ ] Wire up the newsletter signup (needs a decision on the email provider)
+- [x] Newsletter signup saves to the database (F13); sending newsletters needs Q-9

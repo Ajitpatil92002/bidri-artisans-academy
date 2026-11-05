@@ -5,6 +5,7 @@ Everything about the project is recorded here. Read these before starting any wo
 | File | What it holds |
 |---|---|
 | [project-overview.md](project-overview.md) | What we're building, for whom, and the feature scope |
+| [architecture.md](architecture.md) | How the app is built: services, routes, data model, checkout flow |
 | [decisions.md](decisions.md) | Every decision made, with date and reason |
 | [features/](features/README.md) | One folder per feature: scope, tasks, progress |
 | [tasks.md](tasks.md) | Index of tasks and what's waiting on the owner |

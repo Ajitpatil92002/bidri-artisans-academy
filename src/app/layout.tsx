@@ -13,12 +13,22 @@ const body = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Bidri Craft — Handcrafted Bidri Jewellery from Bidar",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  title: {
+    default: "Bidri Craft — Handcrafted Bidri Jewellery from Bidar",
+    template: "%s — Bidri Craft",
+  },
   description:
     "Handcrafted treasures in black metal with intricate silver inlay — authentic Bidri art from Bidar, Karnataka.",
+  openGraph: {
+    siteName: "Bidri Craft",
+    type: "website",
+    locale: "en_IN",
+    images: ["/images/banners/hero-teardrop.webp"],
+  },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"

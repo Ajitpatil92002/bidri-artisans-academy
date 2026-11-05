@@ -1,11 +1,13 @@
 # F03 — Tasks
 
-Detailed tasks get written when the design arrives. Planned:
-
-- [ ] F03-T01 Product detail page
-- [ ] F03-T02 Image gallery
-- [ ] F03-T03 Maker story block linked to the artisan
-- [ ] F03-T04 Related products
+- [x] F03-T01 Product page layout
+- [x] F03-T02 Image gallery with thumbnails
+- [x] F03-T03 Details: materials, dimensions, care
+- [x] F03-T04 Add-to-cart control with stock limits
+- [x] F03-T05 Maker story block
+- [x] F03-T06 Related products
+- [x] F03-T07 Metadata and product structured data
 
 ## Progress log
-- **2026-11-03:** Folder created. Waiting on design.
+- **2026-11-05:** Planned.
+- **2026-11-05:** Built and tested in the browser.
