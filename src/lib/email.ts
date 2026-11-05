@@ -42,6 +42,7 @@ async function send(to: string, subject: string, html: string) {
       return;
     }
     if (process.env.NODE_ENV === "development") await saveForDevelopment(to, subject, html);
+    else console.warn(`Email "${subject}" not sent: RESEND_API_KEY is not set`);
   } catch (error) {
     console.error(`Email "${subject}" failed`, error);
   }

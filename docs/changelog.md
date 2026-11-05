@@ -2,6 +2,14 @@
 
 Newest first. One entry per working session: what was done, and what's next.
 
+## 2026-11-05 — First deploy attempt
+- The Vercel deploy of `aec37ed` failed with no `dist` folder: the project is still configured for the old Vite site. The last successful deploy is still the old academy site.
+- Owner chose Neon for production (D-029). Set `framework: nextjs` in `vercel.json`, added `DIRECT_URL` for migrations, and wrote the launch order in F08.
+
+- Created Neon project `bidri-craft` in Singapore, ran migrations and seeded it.
+
+**Next:** add the settings to Vercel, then follow the F08 launch order. Don't push before that.
+
 ## 2026-11-05 — Complete app built (M1 to M6)
 - Built everything in docs/features: database, shop, search, product pages, accounts, cart, checkout, emails, admin, artisans, journal, contact, newsletter and policy pages.
 - Owner changes during the build: no email verification (D-023), Mailpit removed (D-027), Cloudflare R2 for images (D-028), show/hide password on every password field.
@@ -10,7 +18,7 @@ Newest first. One entry per working session: what was done, and what's next.
 - Bugs found by testing and fixed: a new address wasn't selected at checkout; forms cleared what people typed when validation failed.
 - Not tested yet, because each needs an account: real Razorpay, Resend, Cloudflare R2.
 - Known dev-only issue: the dev server sometimes reloads the first page repeatedly after starting. It settles by itself.
-- Nothing is committed yet.
+- Committed as `aec37ed` and pushed to `main`.
 
 **Next:** the owner reviews the site, then adds Razorpay test keys and answers the questions in docs/tasks.md.
 

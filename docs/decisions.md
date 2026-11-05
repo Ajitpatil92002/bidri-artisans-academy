@@ -169,6 +169,18 @@ Status: **Decided**, **Proposed** (not confirmed yet), or **Superseded by D-xxx*
 - **Decision:** Uploaded images are stored in Cloudflare R2, through its S3-compatible API. Setting the `S3_*` variables turns it on, and the same code works locally if those are set. With no bucket configured, uploads still go to `public/uploads` in development.
 - **Why:** The owner's direction.
 
+### D-029 — Neon for the production database
+- **Date:** 2026-11-05
+- **Status:** Decided. Answers Q-11.
+- **Decision:** Production uses Neon Postgres. The app connects through Neon's pooled URL (`DATABASE_URL`), and migrations use its direct URL (`DIRECT_URL`). Local development stays on Docker.
+- **Why:** The owner's direction.
+
+### D-030 — The app runs in Vercel's Singapore region
+- **Date:** 2026-11-05
+- **Status:** Decided
+- **Decision:** Set `regions: ["sin1"]` in `vercel.json`, to sit next to the Neon database.
+- **Why:** The project defaulted to the US, which would add a slow round trip to every database read.
+
 ---
 
 ## Open questions (to decide later)
@@ -185,7 +197,7 @@ Status: **Decided**, **Proposed** (not confirmed yet), or **Superseded by D-xxx*
 | Q-8 | Brand name: the design says "Bidri Craft" but the domain is bidriart.com. Which name is official? | The site uses "Bidri Craft", as in the design |
 | Q-9 | Newsletter email provider | Needed to wire up the signup form |
 | Q-10 | Do gifts really ship gift-ready with a story card? | The gifting section says so; confirm or change the copy |
-| Q-11 | Hosted Postgres for launch | Vercel can't reach a local Docker database. Needed before F08. Image storage is settled (D-028) |
+| Q-11 | ~~Hosted Postgres for launch~~ | Answered by D-029 |
 | Q-12 | Flat shipping fee and free-shipping threshold | Placeholders until confirmed: ₹99 fee, free above ₹1,499 |
 | Q-13 | Returns, refunds and cancellation policy | Razorpay requires these pages before live payments |
 | Q-14 | Business details for legal pages and invoices: legal name, address, phone, support email | Needed for F13 |

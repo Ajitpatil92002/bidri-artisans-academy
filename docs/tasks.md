@@ -21,7 +21,7 @@ Task IDs: `F<nn>-T<nn>`. Status marks: `[ ]` to do · `[~]` in progress · `[x]`
 - Real product stock, sizes and more photos, including square shots of Fan and Star earrings
 
 ### For launch
-- Q-11 hosted Postgres
+- Add the Neon URL and generated secrets (`.env.neon`) to Vercel
 - A Cloudflare R2 bucket and keys (D-028)
 - A Resend account and verified sending domain
 - Vercel project and the bidriart.com domain

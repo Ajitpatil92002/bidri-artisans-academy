@@ -35,7 +35,7 @@ The owner expects designs to be matched exactly (D-012):
 - Next.js 16 (App Router, `src/` directory) with React 19 and the React Compiler enabled
 - TypeScript, Tailwind CSS 4, ESLint
 - Payments: Razorpay (test mode until launch)
-- Database: PostgreSQL in Docker locally, with Prisma (D-015). Production hosting is still open (Q-11).
+- Database: PostgreSQL in Docker locally, with Prisma (D-015). Production uses Neon (D-029).
 - Deploy: Vercel
 - Login: Better Auth, no email verification (D-018, D-023). Images: `public/uploads` locally, Cloudflare R2 in production (D-028). Email: saved to `.dev-emails/` locally, Resend in production (D-027). Validation: Zod (D-021)
 

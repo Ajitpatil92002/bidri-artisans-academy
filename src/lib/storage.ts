@@ -51,6 +51,11 @@ export async function saveImage(file: File) {
     return `${process.env.S3_PUBLIC_URL}/${name}`;
   }
 
+  // Hosted servers have no lasting disk, so production needs a bucket
+  if (process.env.NODE_ENV === "production") {
+    throw new UploadError("Image storage isn't set up yet.");
+  }
+
   const dir = path.join(process.cwd(), "public", "uploads");
   await mkdir(dir, { recursive: true });
   await writeFile(path.join(dir, name), bytes);

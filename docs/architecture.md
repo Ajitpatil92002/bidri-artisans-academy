@@ -25,7 +25,7 @@ Secrets go in `.env.local`, which is never committed. `.env.example` lists every
 
 ## Production (decide before launch)
 
-Docker is for local work. Vercel can't reach a database running on your own machine, so launch needs a hosted Postgres (Q-11). Images go to Cloudflare R2 (D-028). Moving is mostly a change of connection settings.
+Docker is for local work. Vercel can't reach a database running on your own machine, so production uses Neon Postgres (D-029). Images go to Cloudflare R2 (D-028). Moving is mostly a change of connection settings.
 
 ## Stack additions
 
