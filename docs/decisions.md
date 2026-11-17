@@ -181,6 +181,12 @@ Status: **Decided**, **Proposed** (not confirmed yet), or **Superseded by D-xxx*
 - **Decision:** Set `regions: ["sin1"]` in `vercel.json`, to sit next to the Neon database.
 - **Why:** The project defaulted to the US, which would add a slow round trip to every database read.
 
+### D-031 — Public contact phone number
+- **Date:** 2026-11-17
+- **Status:** Decided. Answers the phone part of Q-14.
+- **Decision:** The store's contact number is +91 99024 24263. It is kept in `src/content/business.ts` and shown as a `tel:` link on the Contact page and in the site footer.
+- **Why:** The owner supplied it.
+
 ---
 
 ## Open questions (to decide later)
@@ -200,7 +206,7 @@ Status: **Decided**, **Proposed** (not confirmed yet), or **Superseded by D-xxx*
 | Q-11 | ~~Hosted Postgres for launch~~ | Answered by D-029 |
 | Q-12 | Flat shipping fee and free-shipping threshold | Placeholders until confirmed: ₹99 fee, free above ₹1,499 |
 | Q-13 | Returns, refunds and cancellation policy | Razorpay requires these pages before live payments |
-| Q-14 | Business details for legal pages and invoices: legal name, address, phone, support email | Needed for F13 |
+| Q-14 | Business details for legal pages and invoices: legal name, address, ~~phone~~, support email | Needed for F13. Phone answered by D-031 |
 | Q-15 | Is cash on delivery wanted? | Planned as online payment only |
 | Q-16 | Who is the shipping carrier? | Planned as manual tracking entry in admin |
 | Q-17 | Real artisan names, stories and photos, with their permission to publish | Needed for F05; we won't invent people |

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LogoMark } from "@/components/icons";
+import { CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from "@/content/business";
 
 const columns = [
   {
@@ -47,6 +48,11 @@ export function SiteFooter() {
           <p className="mt-5 max-w-[320px] text-[15px] leading-[1.7] text-muted">
             Handmade Bidri jewellery in black metal and silver, from the artisans of Bidar,
             Karnataka.
+          </p>
+          <p className="mt-4 text-[15px] text-ivory/85">
+            <a href={`tel:${CONTACT_PHONE}`} className="hover:text-gold">
+              {CONTACT_PHONE_DISPLAY}
+            </a>
           </p>
         </div>
 

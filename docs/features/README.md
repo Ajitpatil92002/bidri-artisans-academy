@@ -24,7 +24,7 @@ IDs are stable labels, so they don't follow the build order. Each milestone ends
 | | | [F11 Emails and order tracking](F11-order-emails/README.md) | Done (Resend untested) | 6/6 |
 | **M5** | Run the shop with no code | [F07 Admin panel](F07-admin/README.md) | Done | 11/11 |
 | **M6** | Stories and every page complete | [F05 Artisan profiles](F05-artisans/README.md) | Built | 2/3 |
-| | | [F06 Craft blog / About Bidri](F06-craft-blog/README.md) | Built | 3/4 |
+| | | [F06 Craft blog / About Bidri](F06-craft-blog/README.md) | Built | 4/5 |
 | | | [F13 Contact, newsletter and policies](F13-contact-policies/README.md) | Built | 3/4 |
 | **M7** | Live at bidriart.com | [F08 Launch](F08-launch/README.md) | In progress | 1/8 |
 

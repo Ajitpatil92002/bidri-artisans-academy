@@ -2,6 +2,12 @@
 
 Newest first. One entry per working session: what was done, and what's next.
 
+## 2026-11-17 — Contact phone number
+- Added the owner's number, +91 99024 24263, as a tap-to-call link on the Contact page and in the footer (D-031, F13-T05). Stored once in `src/content/business.ts`.
+- Lint and build pass.
+
+**Next:** the rest of Q-14 (legal name, address, support email), then the F08 launch order.
+
 ## 2026-11-05 — First deploy attempt
 - The Vercel deploy of `aec37ed` failed with no `dist` folder: the project is still configured for the old Vite site. The last successful deploy is still the old academy site.
 - Owner chose Neon for production (D-029). Set `framework: nextjs` in `vercel.json`, added `DIRECT_URL` for migrations, and wrote the launch order in F08.
